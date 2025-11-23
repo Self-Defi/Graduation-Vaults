@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Graduation Vaults — Pool Overview</title>
+
+  <!-- Favicons / OG (update paths if needed) -->
+  <link rel="icon" type="image/png" href="assets/logos/self-defi-logo.png">
+  <meta property="og:title" content="Graduation Vaults">
+  <meta property="og:description" content="Transparent view of the Graduation Vault pool and individual student vaults.">
+  <meta property="og:image" content="assets/logos/self-defi-logo.png">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img class="brand-logo" src="assets/logos/self-defi-logo.png" alt="Self-Defi" />
+      <div>
+        <h1>Graduation Vaults</h1>
+        <p class="subtitle">Read-Only Pool Dashboard</p>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="#/">Pool</a>
+      <a href="#/about">How It Works</a>
+      <a href="https://cal.com/selfdeficonsultant/15min" target="_blank" rel="noreferrer">Book Consultation</a>
+    </nav>
+  </header>
+
+  <!-- Summary strip -->
+  <section class="summary" id="summaryStrip">
+    <div class="summary-card">
+      <div class="summary-label">Total Vaults</div>
+      <div class="summary-value" id="totalVaults">—</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-label">Total Pool Balance</div>
+      <div class="summary-value" id="totalBalance">—</div>
+      <div class="summary-sub" id="totalBalanceUsd">—</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-label">Signer Set</div>
+      <div class="summary-value">2 of 3 Multi-Sig</div>
+      <div class="summary-sub" id="officialSigners">—</div>
+    </div>
+    <div class="summary-card">
+      <div class="summary-label">Last Sync</div>
+      <div class="summary-value" id="lastSync">—</div>
+      <div class="summary-sub">via SD Advisors Proxy</div>
+    </div>
+  </section>
+
+  <!-- Search -->
+  <section class="search-section">
+    <label class="search-label" for="searchInput">Find a Student Vault</label>
+    <div class="search-wrap">
+      <input id="searchInput" class="search-input" type="text"
+             placeholder='Search student name (e.g., "Aaliyah R.")' autocomplete="off" />
+      <div id="typeahead" class="typeahead hidden"></div>
+    </div>
+  </section>
+
+  <main class="layout">
+    <!-- Vault list -->
+    <section class="vaults">
+      <div class="vaults-header">
+        <h2>All Student Vaults</h2>
+        <div class="vaults-sub">Masked identities. Full transparency on balances and signer policy.</div>
+      </div>
+      <div id="vaultGrid" class="vault-grid"></div>
+    </section>
+
+    <!-- Right side panel -->
+    <aside id="vaultPanel" class="panel hidden">
+      <button id="panelClose" class="panel-close">×</button>
+      <div id="panelContent"></div>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <div>Powered by SD Advisory Group — Self-Defi</div>
+    <div class="footer-sub">Public read-only dashboard. No private keys. No withdrawals from this UI.</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
