@@ -1,0 +1,14 @@
+[
+  {
+    "studentId": "GV-001",
+    "displayName": "Aaliyah R.",
+    "safeAddress": "0x1111111111111111111111111111111111111111",
+    "gradYear": 2029
+  },
+  {
+    "studentId": "GV-002",
+    "displayName": "Marcus T.",
+    "safeAddress": "0x2222222222222222222222222222222222222222",
+    "gradYear": 2029
+  }
+]
