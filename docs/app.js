@@ -1,4 +1,4 @@
-/* Graduation Vaults UI — public/app.js */
+/* Graduation Vaults UI — docs/app.js */
 
 const PROXY_BASE = ""; 
 // later set to your Worker domain, e.g. "https://gv-proxy.selfdefi.workers.dev"
@@ -31,7 +31,7 @@ function hide(el){ el.classList.add("hidden"); }
 
 // ---------- Data loading ----------
 async function loadStudents(){
-  const res = await fetch("data/students.json");
+  const res = await fetch("./data/students.json");
   students = await res.json();
 }
 
