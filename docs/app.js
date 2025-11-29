@@ -44,10 +44,11 @@ async function loadPoolData(){
       usdBalance: Math.random() * 250 + 10 * 0.25,
       status: "Locked",
       signers: {
-        studentParent: "0xaaaa…1111",
-        sdAdvisors: "0xbbbb…2222",
-        schoolOfficial: "0xcccc…3333",
-        threshold: "2 of 3"
+        parentGuardian: "0xaaaa…1111",
+        schoolRep: "0xbbbb…2222",
+        staffOrCounselor: "0xcccc…3333",
+        independentTrustee: "0xdddd…4444",
+        threshold: "3 of 4 (Parent Required)"
       },
       lastActivity: new Date().toISOString()
     }));
@@ -56,7 +57,12 @@ async function loadPoolData(){
       totalVaults: vaults.length,
       totalPol: vaults.reduce((a,v)=>a+v.polBalance,0),
       totalUsd: vaults.reduce((a,v)=>a+v.usdBalance,0),
-      signersGlobal: ["SD Advisors", "School Official"],
+      signersGlobal: [
+        "Parent/Guardian (required)",
+        "School Representative",
+        "Counselor/Staff",
+        "Independent Trustee"
+      ],
       lastSync: new Date().toLocaleString()
     };
     return;
@@ -77,8 +83,11 @@ function renderSummary(){
   els.totalVaults.textContent = poolSummary.totalVaults ?? vaults.length;
   els.totalBalance.textContent = `${fmt(poolSummary.totalPol)} POL`;
   els.totalBalanceUsd.textContent = usd(poolSummary.totalUsd);
+
+  // even if API doesn't send signersGlobal yet, show the standard set
   els.officialSigners.textContent =
-    `SD Advisors • School Official • Student/Parent per vault`;
+    "Parent/Guardian (required) • School Representative • Counselor/Staff • Independent Trustee";
+
   els.lastSync.textContent = poolSummary.lastSync ?? "—";
 }
 
@@ -153,6 +162,8 @@ function openPanel(studentId){
   const v = vaults.find(x=>x.studentId===studentId);
   if (!v) return;
 
+  const s = v.signers || {};
+
   els.panelContent.innerHTML = `
     <h3>${v.displayName} <span class="mono">(${v.studentId})</span></h3>
     <div class="mono">Safe: ${v.safeAddress} <button class="btn mono" id="copyAddr">Copy</button></div>
@@ -168,10 +179,11 @@ function openPanel(studentId){
     </div>
 
     <div class="section">
-      <div class="kv"><div class="k">Threshold</div><div>${v.signers.threshold}</div></div>
-      <div class="kv"><div class="k">Student/Parent</div><div class="mono">${v.signers.studentParent}</div></div>
-      <div class="kv"><div class="k">SD Advisors</div><div class="mono">${v.signers.sdAdvisors}</div></div>
-      <div class="kv"><div class="k">School Official</div><div class="mono">${v.signers.schoolOfficial}</div></div>
+      <div class="kv"><div class="k">Threshold</div><div>${s.threshold || "3 of 4 (Parent Required)"}</div></div>
+      <div class="kv"><div class="k">Parent/Guardian</div><div class="mono">${s.parentGuardian || "—"}</div></div>
+      <div class="kv"><div class="k">School Representative</div><div class="mono">${s.schoolRep || "—"}</div></div>
+      <div class="kv"><div class="k">Counselor/Staff</div><div class="mono">${s.staffOrCounselor || "—"}</div></div>
+      <div class="kv"><div class="k">Independent Trustee</div><div class="mono">${s.independentTrustee || "—"}</div></div>
     </div>
 
     <div class="section">
