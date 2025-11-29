@@ -26,7 +26,12 @@ export default {
           totalVaults: vaults.length,
           totalPol,
           totalUsd,
-          signersGlobal: ["SD Advisors", "School Official"],
+          signersGlobal: [
+            "Parent/Guardian (required)",
+            "School Representative",
+            "Counselor/Staff",
+            "Independent Trustee"
+          ],
           lastSync: new Date().toISOString()
         });
       }
@@ -64,20 +69,11 @@ function json(data, status=200) {
   });
 }
 
-/**
- * TODO: Real SAFE calls go here.
- * You’ll likely:
- * 1) keep a list of Safe addresses in KV or hardcode via env
- * 2) for each safe, call SAFE API to get balances + owners
- */
-
 async function getVaults(env) {
-  // MOCK until SAFE integration is wired
-  // Replace with SAFE API + aggregation
   const safes = (env.SAFE_LIST || "").split(",").filter(Boolean);
 
   if (!safes.length) {
-    // fallback mock
+    // Fallback mock until SAFE integration is wired
     return [
       {
         studentId: "GV-001",
@@ -88,17 +84,18 @@ async function getVaults(env) {
         usdBalance: 30.1,
         status: "Locked",
         signers: {
-          studentParent: "0xaaaa…1111",
-          sdAdvisors: "0xbbbb…2222",
-          schoolOfficial: "0xcccc…3333",
-          threshold: "2 of 3"
+          parentGuardian: "0xaaaa…1111",
+          schoolRep: "0xbbbb…2222",
+          staffOrCounselor: "0xcccc…3333",
+          independentTrustee: "0xdddd…4444",
+          threshold: "3 of 4 (Parent Required)"
         },
         lastActivity: new Date().toISOString()
       }
     ];
   }
 
-  // Example skeleton:
+  // Example skeleton for SAFE integration:
   // const vaults = await Promise.all(safes.map(a => getVaultByAddress(env,a)));
   // return vaults;
 
