@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Graduation Vaults — Pool Overview</title>
 
-  <!-- Favicons / OG (update paths if needed) -->
   <link rel="icon" type="image/png" href="./assets/logos/self-defi-logo.png">
   <meta property="og:title" content="Graduation Vaults">
   <meta property="og:description" content="Transparent view of the Graduation Vault pool and individual student vaults.">
@@ -24,8 +23,8 @@
     </div>
 
     <nav class="nav">
-      <a href="#/">Pool</a>
-      <a href="#/about">How It Works</a>
+      <a href="index.html">Pool</a>
+      <a href="how-it-works.html">How It Works</a>
       <a href="https://cal.com/selfdeficonsultant/15min" target="_blank" rel="noreferrer">Book Consultation</a>
     </nav>
   </header>
@@ -36,16 +35,22 @@
       <div class="summary-label">Total Vaults</div>
       <div class="summary-value" id="totalVaults">—</div>
     </div>
+
     <div class="summary-card">
       <div class="summary-label">Total Pool Balance</div>
       <div class="summary-value" id="totalBalance">—</div>
       <div class="summary-sub" id="totalBalanceUsd">—</div>
     </div>
+
     <div class="summary-card">
       <div class="summary-label">Signer Set</div>
-      <div class="summary-value">2 of 3 Multi-Sig</div>
-      <div class="summary-sub" id="officialSigners">—</div>
+      <!-- UPDATED to 3-of-4 -->
+      <div class="summary-value">3 of 4 Multi-Sig</div>
+      <div class="summary-sub" id="officialSigners">
+        Parent/Guardian (required) • School Representative • Counselor/Staff • Independent Trustee
+      </div>
     </div>
+
     <div class="summary-card">
       <div class="summary-label">Last Sync</div>
       <div class="summary-value" id="lastSync">—</div>
@@ -68,7 +73,7 @@
     <section class="vaults">
       <div class="vaults-header">
         <h2>All Student Vaults</h2>
-        <div class="vaults-sub">Masked identities. Full transparency on balances and signer policy.</div>
+        <div class="vaults-sub">Masked identities. Full transparency on balances and multi-signature governance.</div>
       </div>
       <div id="vaultGrid" class="vault-grid"></div>
     </section>
