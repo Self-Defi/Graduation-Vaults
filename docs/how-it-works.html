@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Graduation Vaults — How It Works</title>
+
+  <link rel="icon" type="image/png" href="./assets/logos/self-defi-logo.png">
+  <meta property="og:title" content="Graduation Vaults — How It Works">
+  <meta property="og:description" content="Overview of the Graduation Vault System and its 3-of-4 multi-signature governance.">
+  <meta property="og:image" content="./assets/logos/self-defi-logo.png">
+
+  <link rel="stylesheet" href="./styles.css" />
+  <style>
+    .content {
+      padding: 18px 16px 80px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-top: 6px;
+    }
+    h2 { margin-top: 24px; font-size: 20px; }
+    p  { font-size: 14px; color: var(--text-dim); line-height: 1.6; }
+    ul { font-size: 14px; color: var(--text-dim); line-height: 1.6; padding-left: 20px; }
+    .card-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .info-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--stroke);
+      padding: 14px;
+      box-shadow: var(--shadow);
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+    .info-card h3 {
+      margin: 0 0 6px;
+      font-size: 15px;
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img class="brand-logo" src="./assets/logos/self-defi-logo.png" alt="Self-Defi" />
+      <div>
+        <h1>Graduation Vaults</h1>
+        <p class="subtitle">How the Vault System Works</p>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <a href="index.html">Pool</a>
+      <a href="how-it-works.html">How It Works</a>
+      <a href="https://cal.com/selfdeficonsultant/15min" target="_blank" rel="noreferrer">Book Consultation</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <div>
+      <h2>What Is a Graduation Vault?</h2>
+      <p>
+        A Graduation Vault is a donation-based, time-locked wallet created for a single student at a partner microschool.
+        Funds can be contributed at any time, but cannot be withdrawn until the student reaches their graduation date,
+        except in documented hardship cases approved by the school’s oversight team.  [oai_citation:1‡White Paper 11:29:25.pdf](sediment://file_00000000eeb0720c838fa4376ff3ab6f)
+      </p>
+      <div class="pill">Donation-based • Non-custodial • Time-locked</div>
+    </div>
+
+    <h2>Who Controls Each Vault?</h2>
+    <p>Each vault is governed by a <strong>3-of-4 multi-signature SAFE account</strong>. Four signers are appointed:</p>
+    <ul>
+      <li><strong>Parent or Guardian</strong> — mandatory signer for all withdrawals.</li>
+      <li><strong>School Representative</strong> — typically an administrator or principal.</li>
+      <li><strong>Teacher, Staff, or Counselor</strong> — directly involved with the student.</li>
+      <li><strong>Independent Trustee or Community Oversight</strong> — neutral, non-school check and balance.</li>
+    </ul>
+    <p>
+      A withdrawal requires the Parent or Guardian <em>plus two oversight signatures</em> (3 signatures total),
+      enforcing shared accountability around how and when funds are used.  [oai_citation:2‡White Paper 11:29:25.pdf](sediment://file_00000000eeb0720c838fa4376ff3ab6f)
+    </p>
+
+    <div class="card-row">
+      <div class="info-card">
+        <h3>3-of-4 Threshold</h3>
+        <p>
+          No single person can move funds. Parent or Guardian must sign, and at least two of the three oversight parties
+          must agree before any transaction is executed.
+        </p>
+      </div>
+      <div class="info-card">
+        <h3>Self-Defi’s Role</h3>
+        <p>
+          Self-Defi and SD Advisory Group <strong>never hold keys</strong>, never custody assets, and never initiate
+          withdrawals. We provide the infrastructure, templates, and dashboards only.  [oai_citation:3‡White Paper 11:29:25.pdf](sediment://file_00000000eeb0720c838fa4376ff3ab6f)
+        </p>
+      </div>
+    </div>
+
+    <h2>How Are Funds Locked and Unlocked?</h2>
+    <ul>
+      <li><strong>Timelock:</strong> Each vault has a graduation unlock date configured at setup.</li>
+      <li><strong>Pre-graduation:</strong> Funds are locked; only view access is available to families and donors.</li>
+      <li><strong>Graduation unlock:</strong> Parent/Guardian plus two oversight signers authorize how funds are used.</li>
+      <li><strong>Hardship cases:</strong> Early withdrawals may be considered only under documented, school-approved exceptions.</li>
+    </ul>
+
+    <h2>Where Can Families and Donors See the Vault?</h2>
+    <p>
+      The public dashboard shows masked student identities, on-chain balances, and the signer policy for each vault.
+      Anyone can verify that:
+    </p>
+    <ul>
+      <li>Funds are held in a dedicated student vault (not a pooled account).</li>
+      <li>Balances and contributions are fully transparent on-chain.</li>
+      <li>The vault is governed by the 3-of-4 multi-signature policy described above.</li>
+    </ul>
+
+    <h2>What This Is Not</h2>
+    <ul>
+      <li>No yield products, interest, or investment promises.</li>
+      <li>No pooled investment fund, trust company, or advisory account.</li>
+      <li>No custody by Self-Defi — keys remain with families and school-appointed signers.</li>
+    </ul>
+
+    <h2>Want to Learn More?</h2>
+    <p>
+      For schools, donors, or families who want a deeper walkthrough of the architecture, signer setup, or SAFE integration,
+      you can book a short consultation below.
+    </p>
+    <p>
+      <a class="btn" href="https://cal.com/selfdeficonsultant/15min" target="_blank" rel="noreferrer">
+        Book Consultation
+      </a>
+    </p>
+  </main>
+
+  <footer class="footer">
+    <div>Powered by SD Advisory Group — Self-Defi</div>
+    <div class="footer-sub">Public read-only dashboard. No private keys. No withdrawals from this UI.</div>
+  </footer>
+</body>
+</html>
